@@ -1,0 +1,61 @@
+﻿
+
+@{
+    ViewData["Title"] = "ListMovies";
+}
+
+@model List<Movie>
+
+<h1>List Movies</h1>
+
+<table class="table-primary">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Movie Title
+        </th>
+        <th>
+            Genre
+        </th>
+        <th>
+            Year
+        </th>
+        <th>
+            Actors
+        </th>
+        <th>
+            Directors
+        </th>
+        <th>
+            Select this movie
+        </th>
+    </tr>
+    @foreach (Movie m in Model)
+    {
+        <tr>
+            <td>
+                @m.ID
+            </td>
+            <td>
+                @m.MovieTitle
+            </td>
+            <td>
+                @m.Genre
+            </td>
+            <td>
+                @m.Year.Year
+            </td>
+            <td>
+                @m.Actors
+            </td>
+            <td>
+                @m.Directors
+            </td>
+            <td>
+                <a href="/Movie/SelectMovie?titleKey=@m.MovieTitle">Rent it!</a>
+            </td>
+        </tr>
+    }
+</table>

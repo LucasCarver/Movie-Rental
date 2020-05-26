@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "Movie Registration";
+}
+
+<h1>Movie Registration</h1>
+
+<form action="/Movie/MovieRegister" method="get">
+    <input type="number" name="ID" min="1" placeholder="ID"
+           oninvalid="this.setCustomValidity('Movie ID field is required')"
+           oninput="this.setCustomValidity('')"
+           required />
+    <br />
+    <input type="text" minlength="1" maxlength="50" name="MovieTitle" placeholder="Title"
+           oninvalid="this.setCustomValidity('Movie Title field is required')"
+           oninput="this.setCustomValidity('')"
+           required />
+    <br />
+    <select name="Genre" style="width:168px" required>
+        <option value="" selected disabled hidden>Choose a Genre</option>
+        <option value="Action">Action</option>
+        <option value="Adventure">Adventure</option>
+        <option value="Animation">Animation</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Crime">Crime</option>
+        <option value="Drama">Drama</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Horror">Horror</option>
+        <option value="Mystery">Mystery</option>
+        <option value="Romance">Romance</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+        <option value="Thriller">Thriller</option>
+    </select>
+    <br />
+    <input type="date" name="Year" style="width:168px" min="1880-01-01" max="@DateTime.Now.ToString("yyyy-MM-dd")" required />
+    <br />
+    <input type="text" name="Actors" placeholder="Actors"
+           oninvalid="this.setCustomValidity('Actors field is required')"
+           oninput="this.setCustomValidity('')"
+           required />
+    <br />
+    <input type="text" name="Directors" placeholder="Directors"
+           oninvalid="this.setCustomValidity('Directors field is required')"
+           oninput="this.setCustomValidity('')"
+           required />
+    <br />
+    <input type="submit" />
+</form>

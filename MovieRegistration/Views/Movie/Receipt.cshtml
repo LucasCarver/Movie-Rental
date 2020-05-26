@@ -1,0 +1,54 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using System.Text.Json;
+@model List<Movie>
+@{
+    ViewData["Title"] = "Receipt";
+}
+
+<h1>Receipt</h1>
+
+<table>
+    <tr>
+        <th>
+            Movie Title
+        </th>
+        <th>
+            Price
+        </th>
+    </tr>
+    @foreach (Movie m in Model)
+    {
+        <tr>
+            <td>
+                @m.MovieTitle
+            </td>
+            <td>
+                $6.99
+            </td>
+        </tr>
+    }
+    <tr>
+        <td>
+            Total
+        </td>
+        <td>
+            @{
+                double total = Model.Count * 6.99;
+            }
+            $@total
+        </td>
+    </tr>
+</table>
+@{
+    List<Movie> tempList = new List<Movie>();
+    foreach (Movie m in Model)
+    {
+        tempList.Add(m);
+    }
+    foreach (Movie m in tempList)
+    {
+        Model.Remove(m);
+    }
+    string cartListString = JsonSerializer.Serialize(Model);
+    Context.Session.SetString("CartList", cartListString);
+}

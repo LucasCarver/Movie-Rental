@@ -1,0 +1,13 @@
+﻿@model Movie
+
+<h4>@Model.MovieTitle has been registered!</h4>
+<p>ID: @Model.ID</p>
+<p>Title: @Model.MovieTitle</p>
+<p>Genre: @Model.Genre</p>
+<p>Date: @Model.Year.ToShortDateString()</p>
+<p>Actors: @Model.Actors</p>
+<p>Directors: @Model.Directors</p>
+<br />
+<p>
+    Are the details correct? <a href="AddMovieToList">yes</a> / <a href="MovieRegistration">no</a>
+</p>
